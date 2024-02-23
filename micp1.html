@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Copy Example</title>
+    <style>
+        #code {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpeg" href="djb.jpg">
+</head>
+<body>
+  <h4>1. Write a program for bcd to binary conversion.</h4>
+    <div id="code">
+        <code>
+def bcd_to_binary(bcd_num):
+    binary_num = ""
+    for digit in bcd_num:
+        binary_num += bin(int(digit, 16))[2:].zfill(4)
+    return binary_num
+
+bcd_number = input("Enter a BCD number: ")
+binary_result = bcd_to_binary(bcd_number)
+print("Binary equivalent:", binary_result)
+        </code>
+    </div>
+    <button onclick="copyCode()">Copy code</button>
+  <aside class="advertisement">
+  <!-- Advertisements will be displayed here --> <h1>advertisement</h1>
+</aside>
+
+    <script>
+        function copyCode() {
+            var code = document.querySelector('#code code').innerText;
+            navigator.clipboard.writeText(code)
+                .then(() => alert('Code copied successfully!'))
+                .catch(err => console.error('Could not copy code: ', err));
+        }
+    </script>
+</body>
+</html>
